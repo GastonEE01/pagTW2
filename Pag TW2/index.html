@@ -52,36 +52,51 @@
   </div>
 
   <script>
-    function loadPDF(pdfFile) {
-      const container = document.getElementById('pdf-container');
+  function isMobile() {
+    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  }
+
+  function loadPDF(pdfFile) {
+    const container = document.getElementById('pdf-container');
+
+    if (isMobile()) {
       container.innerHTML = `
-        <object data="${pdfFile}" type="application/pdf">
-          <p>Tu navegador no puede mostrar el PDF. <a href="${pdfFile}" target="_blank">Haz clic aquí para descargarlo</a>.</p>
-        </object>`;
+        <p style="padding: 2rem; text-align: center;">📱 Tu dispositivo no puede mostrar el PDF embebido.<br>
+        <a href="${pdfFile}" target="_blank" style="color: #007bff;">👉 Haz clic aquí para verlo</a></p>
+      `;
+    } else {
+      container.innerHTML = `
+        <object data="${pdfFile}" type="application/pdf" width="100%" height="100%">
+          <p>❌ No se pudo mostrar el PDF.<br>
+          <a href="${pdfFile}" target="_blank">Haz clic aquí para descargarlo</a>.</p>
+        </object>
+      `;
     }
+  }
 
-    function toggleMenu(menuId) {
-      const menus = document.querySelectorAll('.clase-menu');
-      const buttons = document.querySelectorAll('.clase-button');
+  function toggleMenu(menuId) {
+    const menus = document.querySelectorAll('.clase-menu');
+    const buttons = document.querySelectorAll('.clase-button');
 
-      menus.forEach(menu => {
-        if (menu.id !== menuId) {
-          menu.classList.remove('active');
-        }
-      });
+    menus.forEach(menu => {
+      if (menu.id !== menuId) {
+        menu.classList.remove('active');
+      }
+    });
 
-      buttons.forEach(button => {
-        if (button.nextElementSibling.id !== menuId) {
-          button.classList.remove('active');
-        }
-      });
+    buttons.forEach(button => {
+      if (button.nextElementSibling.id !== menuId) {
+        button.classList.remove('active');
+      }
+    });
 
-      const selectedMenu = document.getElementById(menuId);
-      selectedMenu.classList.toggle('active');
+    const selectedMenu = document.getElementById(menuId);
+    selectedMenu.classList.toggle('active');
 
-      const button = selectedMenu.previousElementSibling;
-      button.classList.toggle('active');
-    }
-  </script>
+    const button = selectedMenu.previousElementSibling;
+    button.classList.toggle('active');
+  }
+</script>
+
 </body>
 </html>
