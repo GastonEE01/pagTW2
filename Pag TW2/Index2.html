@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taller web 2</title>
+  <link rel="stylesheet" href="./Estilo/Estilo.css" />
+  
+</head>
+<body>
+  <header>
+    <h1>Taller web 2</h1>
+  </header>
+
+  <div class="botonera">
+    <a href="Index.html"><button>Resumenes</button></a>
+    <a href="Index2.html"><button>Parciales</button></a>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <button class="clase-button" onclick="toggleMenu('Parcial1-menu')">Parcial 1</button>
+      <div id="Parcial1-menu" class="clase-menu">
+        <button class="submenu-button" onclick="loadPDF('./Parciales/2023-1C_parcial_choice (1).pdf')">Parcial 2023 1C choice</button>
+        <button class="submenu-button" onclick="loadPDF('./Parciales/2023-2C_parcial_choice (1).pdf')">Parcial 2023 2C choice</button>
+      </div>
+
+      <button class="clase-button" onclick="toggleMenu('Parcial2-menu')">Parcial 2</button>
+      <div id="Parcial2-menu" class="clase-menu">
+        <button class="submenu-button" onclick="loadPDF('./Parciales/Clase2/Parcial3.pdf')">Parcial 3</button>
+        <button class="submenu-button" onclick="loadPDF('./Parciales/Clase2/Parcial4.pdf')">Parcial 4</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="pdf-container" class="message">
+        Selecciona un parcial para ver su contenido
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function loadPDF(pdfFile) {
+      const container = document.getElementById('pdf-container');
+      container.innerHTML = `<object data="${pdfFile}" type="application/pdf">Tu navegador no puede mostrar el PDF. <a href="${pdfFile}" target="_blank">Haz clic aquí para descargarlo</a>.</object>`;
+    }
+
+    function toggleMenu(menuId) {
+      const menus = document.querySelectorAll('.clase-menu');
+      const buttons = document.querySelectorAll('.clase-button');
+
+      menus.forEach(menu => {
+        if (menu.id !== menuId) {
+          menu.classList.remove('active');
+        }
+      });
+
+      buttons.forEach(button => {
+        if (button.nextElementSibling.id !== menuId) {
+          button.classList.remove('active');
+        }
+      });
+
+      const selectedMenu = document.getElementById(menuId);
+      selectedMenu.classList.toggle('active');
+
+      const button = selectedMenu.previousElementSibling;
+      button.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
