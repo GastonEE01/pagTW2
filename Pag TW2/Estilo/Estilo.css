@@ -95,17 +95,13 @@
       background-color: #000000;
     }
 
-    #pdf-container object {
-      width: 100vh;
-      height: 100vh;
-      border: none;
+    .pdfviewer{
+      justify-content: center;
+      width: 100%;
+      height: 75vh;
     }
 
-    .message {
-      text-align: center;
-      color: #999;
-      padding: 2rem;
-    }
+    
 /*
 TP : ES GRUPAL !!!
 
@@ -186,4 +182,9 @@ Decimal Pipe p Number Pipe
 
 Currency pipe : muestra en formato de moneda
 
+PARCIAL: HASTA EL TEMA 5 ENTRA Y VA A AVISAR EL HORARIO DEL PARCIAL
+TIEMPO MAXIMO 40 MINUTOS
+EN EL FORO AVISA QUE LABORATORIO ES 
+REPASAR LOS PRACTICOS 
+LA NOTA LA DA EN EL MOMENTO ,NO SE SABE LA CANTIDAD DE LA PREGUNTAS ENTRE 10 Y 20 ,DEPENDERA LA COMPLEJIDAD 
 */

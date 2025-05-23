@@ -16,96 +16,91 @@
     <a href="index.html"><button>Resumenes</button></a>
     <a href="index2.html"><button>Parciales</button></a>
   </div>
-<iframe 
-  src="https://drive.google.com/file/d/1d2kc8rAbD5zO6u_FeAPY7OfQp4rHBS9N/preview" 
-  width="100%" 
-  height="600px" 
-  allow="autoplay">
-</iframe>
 
   <div class="container">
     <div class="sidebar">
-      <button class="clase-button" onclick="toggleMenu('clase1-menu')">Clase 1</button>
-      <div id="clase1-menu" class="clase-menu">
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 1/Dominios 1.pdf')">Dominios 1</button>
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 1/Dominios 2 .pdf')">Dominios 2</button>
-
-        <iframe src="enlace_de_google_drive_viewer" width="100%" height="600px"></iframe>
-
-      </div>
-
-      <button class="clase-button" onclick="toggleMenu('clase2-menu')">Clase 2</button>
-      <div id="clase2-menu" class="clase-menu">
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 2/Computacion en la nube resumen.pdf')">Computación en la nube</button>
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 2/SERVIDORES (1).pdf')">Servidores</button>
-      </div>
-
-      <button class="clase-button" onclick="toggleMenu('clase5-menu')">Clase 5</button>
-      <div id="clase5-menu" class="clase-menu">
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 5/Tipos de Servidores (1).pdf')">Tipos de servidores</button>
-      </div>
-
-      <button class="clase-button" onclick="toggleMenu('clase9-menu')">Clase 9</button>
-      <div id="clase9-menu" class="clase-menu">
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 9/Arquitectura (1).pdf')">Arquitectura</button>
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 9/Cloud (1).pdf')">Cloud</button>
-        <button class="submenu-button" onclick="loadPDF('./Resumenes/Clase 9/Seguridad (1).pdf')">Seguridad</button>
-      </div>
+      <button class="clase-button" onclick="PdfDominio()">Dominio</button>
+      <button class="clase-button" onclick="PdfComputacionEnLaNube()">Computacion en la nube</button>
+      <button class="clase-button" onclick="PdfServidores()">Servidores</button>
+      <button class="clase-button" onclick="PdfCloudYArquitectura()">Cloud y arquitectura</button>
+      <button class="clase-button" onclick="PdfAngularYNode()">Angular y Node.js</button>      
+      <button class="clase-button" onclick="PdfResumenCompleto()">Resumen completo</button>
     </div>
 
-    <div class="content">
-      <div id="pdf-container" class="message">
-        Selecciona una clase para ver su contenido
-      </div>
+    <!-- Este es el contenedor que mostrará el PDF en el centro -->
+    <div id="pdf-container" class="pdfviewer" width="5000px height="100%">
+      <!-- Aquí se cargan los PDFs dinámicamente -->
     </div>
   </div>
 
+  
   <script>
-  function isMobile() {
-    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  }
 
-  function loadPDF(pdfFile) {
-    const container = document.getElementById('pdf-container');
+function PdfDominio() {
+  document.getElementById("pdf-container").innerHTML = `
+    <iframe 
+      src="https://drive.google.com/file/d/13KR96dpsqE4DHnq5kb5-YoppVP1lvoPs/preview" 
+      width="99.5%" 
+      height="100%" 
+      allow="autoplay">
+    </iframe>
+  `;
+}
 
-    if (isMobile()) {
-      container.innerHTML = `
-        <p style="padding: 2rem; text-align: center;">📱 Tu dispositivo no puede mostrar el PDF embebido.<br>
-        <a href="${pdfFile}" target="_blank" style="color: #007bff;">👉 Haz clic aquí para verlo</a></p>
-      `;
-    } else {
-      container.innerHTML = `
-        <object data="${pdfFile}" type="application/pdf" width="100%" height="100%">
-          <p>❌ No se pudo mostrar el PDF.<br>
-          <a href="${pdfFile}" target="_blank">Haz clic aquí para descargarlo</a>.</p>
-        </object>
-      `;
-    }
-  }
+function PdfComputacionEnLaNube() {
+  document.getElementById("pdf-container").innerHTML = `
+    <iframe 
+      src="https://drive.google.com/file/d/13mr6Q3laYq3LbdzNM6bbIW2caurkl49S/preview" 
+      width="99.5%" 
+      height="100%" 
+      allow="autoplay">
+    </iframe>
+  `;
+}
 
-  function toggleMenu(menuId) {
-    const menus = document.querySelectorAll('.clase-menu');
-    const buttons = document.querySelectorAll('.clase-button');
+function PdfServidores() {
+  document.getElementById("pdf-container").innerHTML = `
+    <iframe 
+      src="https://drive.google.com/file/d/1v8psHLLnqHz0dZRqtwrrAjZ4GRQSfdHo/preview" 
+      width="99.5%" 
+      height="100%" 
+      allow="autoplay">
+    </iframe>
+  `;
+}
 
-    menus.forEach(menu => {
-      if (menu.id !== menuId) {
-        menu.classList.remove('active');
-      }
-    });
+function PdfCloudYArquitectura() {
+  document.getElementById("pdf-container").innerHTML = `
+    <iframe 
+      src="https://drive.google.com/file/d/1Y6jW93XHCo3tOyweRj7Q2FcQwx-E_s1L/preview" 
+      width="99.5%" 
+      height="100%" 
+      allow="autoplay">
+    </iframe>
+  `;
+}
 
-    buttons.forEach(button => {
-      if (button.nextElementSibling.id !== menuId) {
-        button.classList.remove('active');
-      }
-    });
-
-    const selectedMenu = document.getElementById(menuId);
-    selectedMenu.classList.toggle('active');
-
-    const button = selectedMenu.previousElementSibling;
-    button.classList.toggle('active');
-  }
+function PdfAngularYNode() {
+  document.getElementById("pdf-container").innerHTML = `
+    <iframe 
+      src="https://drive.google.com/file/d/1XSMaIl45Xde6i7_SyOc03g5Ewd6JBKQW/preview" 
+      width="99.5%" 
+      height="100%" 
+      allow="autoplay">
+    </iframe>
+  `;
+}
+function PdfResumenCompleto() {
+  document.getElementById("pdf-container").innerHTML = `
+    <iframe 
+      src="https://drive.google.com/file/d/1d2kc8rAbD5zO6u_FeAPY7OfQp4rHBS9N/preview" 
+      width="99.5%" 
+      height="100%" 
+      allow="autoplay">
+    </iframe>
+  `;
+} 
 </script>
-
+ 
 </body>
 </html>
