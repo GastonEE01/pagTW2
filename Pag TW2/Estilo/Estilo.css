@@ -182,9 +182,40 @@ Decimal Pipe p Number Pipe
 
 Currency pipe : muestra en formato de moneda
 
+Configurar el httpClientModule en el app.module.ts para usar las peticiones HTTP en la aplicacion en empleado.service.séct.ts
 PARCIAL: HASTA EL TEMA 5 ENTRA Y VA A AVISAR EL HORARIO DEL PARCIAL
 TIEMPO MAXIMO 40 MINUTOS
 EN EL FORO AVISA QUE LABORATORIO ES 
 REPASAR LOS PRACTICOS 
 LA NOTA LA DA EN EL MOMENTO ,NO SE SABE LA CANTIDAD DE LA PREGUNTAS ENTRE 10 Y 20 ,DEPENDERA LA COMPLEJIDAD 
+
+el value es para mostrar el valor de la señal en el template
+
+Es mas prolijo hacerlo  de esta forma el create -empledo.componenent.ts
+en angular se pueden cconfiguradores persolizados para los componentes,que permiten definir propiedades y metodos que se pueden usar en el template
+
+Cuando se hace el enlade desde el html al ts se hace a traves de la propiedad value
+La manera que senecesita para enlazar el create name 
+ng g enviroment es para evitar repetir codigo en producciona 1 es cuando la app esta en modo desarrollo y otra en modo
+produccion dandote una URL 
+
+EL node.js es una 
+
+Server.ts para el node.js ,usa el framework expres (no se bien para que es)  
+
+async start() para inicializar un servidor 
+
+export class Server{} configura el puerta y mas cosas crea un constructor
+Es importante configurar y poner los enviroment para que la APP funciones
+
+router.use('/api/
+
+TP: 
+FILTRAR MINIMO POR 3 CAMPOS ,CUANDO ESTES LISTANDO UN PRODUCTO  ,2RQUISITO CUANDO VUELVA A OTRA PANTALLA ES QUE CUANDO SALGA DE LA PANTALLA SE GUARDE
+
+EXPLICACION ULTIMOS MINUTOS EXPLICACION DE REQUISITOS DE FRONT Y BACK END
+tema de NODE solo como funciona sincronicamente y asincronicamente en el parcial,de angular no púede ser codigo ,componente ,pais ,explicame este codigo y por que ,justificar 
+
+IMPORTANTE LAS PREGUNTAS DEL PARCIAL DEL CUATRIMESTRE PASADO NO VAN A ESTAR NINGUNA
+NO SE SABE EL LABORATORIO
 */
